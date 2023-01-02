@@ -35,4 +35,4 @@ template_engine: liquid
 # pagination:
 #   enabled: true
 
-airtable_api_key: keyAeG0eeF2YkwP79
+airtable_api_key: ENV["AIRTABLE_API_KEY"]
