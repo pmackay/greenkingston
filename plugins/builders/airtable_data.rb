@@ -1,6 +1,5 @@
 class Builders::AirtableData < SiteBuilder
   def build
-    puts config["airtable_api_key"]
     build_events
     build_entities
   end
@@ -33,8 +32,8 @@ class Builders::AirtableData < SiteBuilder
         fields = event["fields"]
         fields["start"] = fields["startDate"]
         fields["group"] = 1 # local
-        puts fields["image"]
-        puts fields["image"].class
+        # puts fields["image"]
+        # puts fields["image"].class
         # fields["image"] = JSON.parse(fields["image"][0])
         # fields["image"] = fields["image"][0]
         # puts fields["image"]
@@ -43,7 +42,7 @@ class Builders::AirtableData < SiteBuilder
         # puts fields["image"]["thumbnails"]["small"]["url"]
         fields["content"] = "#{fields["name"]} began"
         if fields["image"][0]
-          fields["image_url"] = fields["image"][0]["thumbnails"]["large"]["url"]
+          fields["image_url"] = fields["image"][0]["thumbnails"]["small"]["url"]
           img_el = "<img src=\"#{fields["image_url"]}\"/>"
           # fields["content"] += CGI::escapeHTML(img_el)
         end
