@@ -44,6 +44,6 @@ class Builders::AirtableData < SiteBuilder
   end
 
   def base_url(base_name)
-    "https://api.airtable.com/v0/app5RG1gIK9buK1iC/#{base_name}?api_key=#{config["airtable_api_key"]}"
+    "https://api.airtable.com/v0/app5RG1gIK9buK1iC/#{base_name}?api_key=#{ENV["AIRTABLE_API_KEY"]}"
   end
 end
