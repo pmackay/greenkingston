@@ -1,1 +1,5 @@
-@import "~bulmatown/frontend/styles"
+@import "~bulmatown/frontend/styles";
+
+h1 {
+  @extend .title, .mt-3;
+}

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 exclude_from_search: true
 ---
 <script
@@ -19,4 +19,6 @@ exclude_from_search: true
   ]
 </script>
 
-<div id="timeline"></div>
+# History timeline
+
+<div id="timeline" class="mt-6"></div>
