@@ -10,7 +10,15 @@ console.info("Bridgetown is loaded!")
 var container = document.getElementById('timeline');
 
 // Configuration for the Timeline
-var options = {};
+var options = {
+  template: function (item, element, data) {
+    content = '<p>' + item.content + '</p>';
+    if (item.image_url) {
+      content = content + `<img src="${item.image_url}"/>`;
+    }
+    return content;
+  }
+};
 
 const groupMap = {
   'local': 1,

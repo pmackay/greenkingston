@@ -32,8 +32,22 @@ class Builders::AirtableData < SiteBuilder
         # puts event.to_s
         fields = event["fields"]
         fields["start"] = fields["startDate"]
-        fields["content"] = "#{fields["name"]} began"
         fields["group"] = 1 # local
+        puts fields["image"]
+        puts fields["image"].class
+        # fields["image"] = JSON.parse(fields["image"][0])
+        # fields["image"] = fields["image"][0]
+        # puts fields["image"]
+        # puts fields["image"]["thumbnails"]
+        # puts fields["image"]["thumbnails"]["small"]
+        # puts fields["image"]["thumbnails"]["small"]["url"]
+        fields["content"] = "#{fields["name"]} began"
+        if fields["image"][0]
+          fields["image_url"] = fields["image"][0]["thumbnails"]["large"]["url"]
+          img_el = "<img src=\"#{fields["image_url"]}\"/>"
+          # fields["content"] += CGI::escapeHTML(img_el)
+        end
+        fields["image"] = ''
         add_resource :events, "#{event["id"]}" do
           fields fields
           title fields["title"]
