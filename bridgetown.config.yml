@@ -34,3 +34,5 @@ template_engine: liquid
 # timezone: America/Los_Angeles
 # pagination:
 #   enabled: true
+
+airtable_api_key: keyAeG0eeF2YkwP79
