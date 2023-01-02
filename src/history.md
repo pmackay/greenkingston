@@ -21,4 +21,6 @@ exclude_from_search: true
 
 # History timeline
 
+This shows environmental events that occurred in Kingston, alongside significant events in the global environmental movement.
+
 <div id="timeline" class="mt-6"></div>
