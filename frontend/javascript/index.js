@@ -1,7 +1,6 @@
 import "index.scss"
 import "syntax-highlighting.css"
 import Bulmatown from "bulmatown"
-import {Timeline, DataSet } from 'vis-timeline/standalone'
 
 // Import all JavaScript & CSS files from src/_components
 import components from "bridgetownComponents/**/*.{js,jsx,js.rb,css}"
