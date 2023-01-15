@@ -1,0 +1,12 @@
+---
+layout: default
+exclude_from_search: true
+---
+
+
+<h1>History timeline</h1>
+
+<p>This shows environmental events that occurred in Kingston, alongside significant events in the global environmental movement.</p>
+
+
+<%= render TimelineComponent.new(items: collections.events.resources) %>
