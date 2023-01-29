@@ -13,7 +13,7 @@
           <% end %>
           <ul>
             <% items.each do |item| %>
-            <li class="group-<%= item.data.fields["group"] %>"><%= item.data.fields["content"] %></li>
+            <li class="group-<%= item.data.fields["group"] %>"><%= raw item.data.fields["content"] %></li>
             <% end %>
           </ul>
         </section>

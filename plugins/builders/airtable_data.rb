@@ -1,3 +1,5 @@
+require 'kramdown'
+
 class Builders::AirtableData < SiteBuilder
   def build
     build_events
@@ -13,7 +15,7 @@ class Builders::AirtableData < SiteBuilder
         # puts event.to_s
         fields = event["fields"]
         fields["start"] = fields["startDate"]
-        fields["content"] = fields["title"]
+        fields["content"] = Kramdown::Document.new(fields["title"]).to_html[3..-3]
         fields["group"] = fields["group"] == "local" ? 1 : 2
         add_resource :events, "#{event["id"]}" do
           fields fields
@@ -40,7 +42,7 @@ class Builders::AirtableData < SiteBuilder
         # puts fields["image"]["thumbnails"]
         # puts fields["image"]["thumbnails"]["small"]
         # puts fields["image"]["thumbnails"]["small"]["url"]
-        fields["content"] = "#{fields["name"]} began"
+        fields["content"] = "<a href=\"#{fields["url"]}\">#{fields["name"]}</a> began"
         if fields["image"][0]
           fields["image_url"] = fields["image"][0]["thumbnails"]["small"]["url"]
           img_el = "<img src=\"#{fields["image_url"]}\"/>"
