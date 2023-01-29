@@ -5,9 +5,7 @@
 # in the templates via {{ site.metadata.myvariable }}.
 
 title: Green Kingston
-tagline: This site is totally awesome
-email: your-email@example.com
+tagline: The environmental community in Kingston upon Thames
+email: pauljmackay@gmail.com
 description: >-
-  Write an awesome description for your new site here. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
-
-twitter: n
+  All the community groups and history of the green movement in Kingston upon Thames.
