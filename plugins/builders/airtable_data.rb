@@ -42,7 +42,7 @@ class Builders::AirtableData < SiteBuilder
         # puts fields["image"]["thumbnails"]
         # puts fields["image"]["thumbnails"]["small"]
         # puts fields["image"]["thumbnails"]["small"]["url"]
-        fields["content"] = "<a href=\"#{fields["url"]}\">#{fields["name"]}</a> began"
+        fields["content"] = fields["url"] ? "<a href=\"#{fields["url"]}\">#{fields["name"]}</a> began" : "#{fields["name"]} began"
         if fields["image"][0]
           fields["image_url"] = fields["image"][0]["thumbnails"]["small"]["url"]
           img_el = "<img src=\"#{fields["image_url"]}\"/>"
