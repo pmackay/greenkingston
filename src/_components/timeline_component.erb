@@ -1,0 +1,25 @@
+<div id="timeline">
+  <div id="timeline">
+    <div>
+      <% @items_by_date.keys.sort.each do |year| %>
+      <% months = @items_by_date[year] %>
+      <section class="year">
+        <h3><%= year %></h3>
+        <% months.keys.sort.each do |month| %>
+        <% items = months[month] %>
+        <section>
+          <% if items[0].data.fields["dateAccuracy"] != "year" %>
+            <h4><%= Date::MONTHNAMES[month] %></h4>
+          <% end %>
+          <ul>
+            <% items.each do |item| %>
+            <li class="group-<%= item.data.fields["group"] %>"><%= raw item.data.fields["content"] %></li>
+            <% end %>
+          </ul>
+        </section>
+        <% end %>
+      </section>
+      <% end %>
+    </div>
+  </div>
+</div>

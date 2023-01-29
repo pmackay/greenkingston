@@ -1,1 +1,6 @@
-@import "~bulmatown/frontend/styles"
+@import "~bulmatown/frontend/styles";
+@import "components/timeline.scss";
+
+h1 {
+  @extend .title, .mt-3;
+}
