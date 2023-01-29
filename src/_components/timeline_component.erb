@@ -8,7 +8,9 @@
         <% months.keys.sort.each do |month| %>
         <% items = months[month] %>
         <section>
-          <h4><%= Date::MONTHNAMES[month] %></h4>
+          <% if items[0].data.fields["dateAccuracy"] != "year" %>
+            <h4><%= Date::MONTHNAMES[month] %></h4>
+          <% end %>
           <ul>
             <% items.each do |item| %>
             <li class="group-<%= item.data.fields["group"] %>"><%= item.data.fields["content"] %></li>
