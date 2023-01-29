@@ -44,9 +44,10 @@ class Builders::AirtableData < SiteBuilder
         # puts fields["image"]["thumbnails"]["small"]["url"]
         fields["content"] = fields["url"] ? "<a href=\"#{fields["url"]}\">#{fields["name"]}</a> began" : "#{fields["name"]} began"
         if fields["image"][0]
-          fields["image_url"] = fields["image"][0]["thumbnails"]["small"]["url"]
-          img_el = "<img src=\"#{fields["image_url"]}\"/>"
+          fields["image_url"] = fields["image"][0]["thumbnails"]["large"]["url"]
+          img_el = "<div><img src=\"#{fields["image_url"]}\" class=\"image mt-2\" width=\"128\"/></div>"
           # fields["content"] += CGI::escapeHTML(img_el)
+          fields["content"] += img_el
         end
         fields["image"] = ''
         add_resource :events, "#{event["id"]}" do
